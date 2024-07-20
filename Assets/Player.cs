@@ -13,7 +13,14 @@ public class Player : MonoBehaviour
     [Header("衝刺相關資料")]
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashDuration;
-    [SerializeField] private float dashTime;
+    private float dashTime;
+
+    [SerializeField] private float dashCooldown;
+    private float dashCooldownTimer;
+
+    [Header("攻擊相關資料")]
+    private bool isAttacking;
+    private int comboCounter;
 
     private float xInput;
 
@@ -40,14 +47,15 @@ public class Player : MonoBehaviour
         CollitionCheck();
 
         dashTime -= Time.deltaTime;
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            dashTime = dashDuration;
-        }
+        dashCooldownTimer -= Time.deltaTime;
 
         FlipController();
         AnimatorControllers();
+    }
+
+    public void AttackOver()
+    {
+        isAttacking = false;
     }
 
     private void CollitionCheck()
@@ -59,9 +67,29 @@ public class Player : MonoBehaviour
     {
         xInput = Input.GetAxisRaw("Horizontal");
 
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            isAttacking = true;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            DashAbility();
+        }
+
+    }
+
+    private void DashAbility()
+    {
+        if (dashCooldownTimer < 0)
+        {
+            dashCooldownTimer = dashCooldown;
+            dashTime = dashDuration;
         }
     }
 
@@ -88,10 +116,11 @@ public class Player : MonoBehaviour
         bool isMoving = rb.velocity.x != 0;
 
         anim.SetFloat("yVelocity", rb.velocity.y);
-
         anim.SetBool("isMoving", isMoving);
         anim.SetBool("isGrounded", isGrounded);
         anim.SetBool("isDashing", dashTime > 0);
+        anim.SetBool("isAttacking", isAttacking);
+        anim.SetInteger("comboCounter", comboCounter);
     }
 
     private void Flip()
