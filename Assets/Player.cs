@@ -4,176 +4,88 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    private Animator anim;
+    [Header("移動資料")]
+    public float moveSpeed = 12f;
+    public float jumpForce;
 
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float jumpForce;
-
-    [Header("衝刺相關資料")]
-    [SerializeField] private float dashSpeed;
-    [SerializeField] private float dashDuration;
-    private float dashTime;
-
-    [SerializeField] private float dashCooldown;
-    private float dashCooldownTimer;
-
-    [Header("攻擊相關資料")]
-    [SerializeField] private float comboTime = .3f;
-    private float comboTimeWindow;
-    private bool isAttacking;
-    private int comboCounter;
-
-    private float xInput;
-
-    private int facingDir = 1;
-    private bool facingRight = true;
-
-
-    [Header("碰撞(地板)相關資料")]
+    [Header("Collision info")]
+    [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckDistance;
+    [SerializeField] private Transform wallCheck;
+    [SerializeField] private float wallCheckDistance;
     [SerializeField] private LayerMask whatIsGround;
-    private bool isGrounded;
 
+    public int facingDir { get; private set; } = 1;
+    public bool facingRight = true;
 
-    void Start()
+    #region Compoments
+    public Animator anim { get; private set; }
+
+    public Rigidbody2D rb { get; private set; }
+    #endregion
+
+    #region States
+    public PlayerStateMachine stateMachine { get; private set; }
+
+    public PlayerIdleState idleState { get; private set; }
+    public PlayerMoveState moveState { get; private set; }
+    public PlayerJumpState jumpState { get; private set; }
+    public PlayerAirState airState { get; private set; }
+
+    #endregion
+
+    private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        stateMachine = new PlayerStateMachine();
+
+        idleState = new PlayerIdleState(this, stateMachine, "Idle");
+        moveState = new PlayerMoveState(this, stateMachine, "Move");
+        jumpState = new PlayerJumpState(this, stateMachine, "Jump");
+        airState = new PlayerAirState(this, stateMachine, "Jump");
+
+    }
+
+    private void Start()
+    {
         anim = GetComponentInChildren<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+
+        stateMachine.Initialize(moveState);
     }
 
-    void Update()
+    private void Update()
     {
-        Movement();
-        CheckInput();
-        CollitionCheck();
-
-        dashTime -= Time.deltaTime;
-        dashCooldownTimer -= Time.deltaTime;
-        comboTimeWindow -= Time.deltaTime;
-
-        FlipController();
-        AnimatorControllers();
+        stateMachine.currentState.Update();
     }
 
-    public void AttackOver()
+    public void setVelocity(float _xVelocity, float _yVelocity)
     {
-        isAttacking = false;
-
-        comboCounter++;
-
-        if (comboCounter > 2)
-        {
-            comboCounter = 0;
-        }
-
+        rb.velocity = new Vector2(_xVelocity, _yVelocity);
+        FlipController(_xVelocity);
     }
 
-    private void CollitionCheck()
+    public bool IsGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
+
+    private void OnDrawGizmos()
     {
-        isGrounded = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, whatIsGround);
-    }
-
-    private void CheckInput()
-    {
-        xInput = Input.GetAxisRaw("Horizontal");
-
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            StartAttackEvent();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            DashAbility();
-        }
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(groundCheck.position, new Vector3(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
+        Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y));
 
     }
 
-    private void StartAttackEvent()
-    {
-        if (!isGrounded)
-        {
-            return;
-        }
-
-        if (comboTimeWindow < 0)
-        {
-            comboCounter = 0;
-        }
-
-        isAttacking = true;
-        comboTimeWindow = comboTime;
-    }
-
-    private void DashAbility()
-    {
-        if (dashCooldownTimer < 0 && !isAttacking)
-        {
-            dashCooldownTimer = dashCooldown;
-            dashTime = dashDuration;
-        }
-    }
-
-    private void Movement()
-    {
-        if (isAttacking)
-        {
-            rb.velocity = new Vector2(0, 0);
-        }
-        else if (dashTime > 0)
-        {
-            rb.velocity = new Vector2(facingDir * dashSpeed * 2, 0);
-        }
-        else
-        {
-            rb.velocity = new Vector2(xInput * moveSpeed, rb.velocity.y);
-        }
-    }
-
-    private void Jump()
-    {
-        if (isGrounded)
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-    }
-
-    private void AnimatorControllers()
-    {
-        bool isMoving = rb.velocity.x != 0;
-
-        anim.SetFloat("yVelocity", rb.velocity.y);
-        anim.SetBool("isMoving", isMoving);
-        anim.SetBool("isGrounded", isGrounded);
-        anim.SetBool("isDashing", dashTime > 0);
-        anim.SetBool("isAttacking", isAttacking);
-        anim.SetInteger("comboCounter", comboCounter);
-    }
-
-    private void Flip()
+    public void Flip()
     {
         facingDir *= -1;
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
     }
 
-    private void FlipController()
+    public void FlipController(float _x)
     {
-        if (rb.velocity.x > 0 && !facingRight)
+        if (_x > 0 && !facingRight)
             Flip();
-
-        else if (rb.velocity.x < 0 && facingRight)
+        else if (_x < 0 && facingRight)
             Flip();
-
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y - groundCheckDistance, transform.position.z));
     }
 }
