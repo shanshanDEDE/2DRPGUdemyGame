@@ -15,7 +15,7 @@ D:/unitydownload/20240429/Udemy/2DRPGGame/2DRPGUdemyGame
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-3467
+7325
 Successfully changed project path to: D:/unitydownload/20240429/Udemy/2DRPGGame/2DRPGUdemyGame
 D:/unitydownload/20240429/Udemy/2DRPGGame/2DRPGUdemyGame
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,11 +47,11 @@ D:/unitydownload/20240429/Udemy/2DRPGGame/2DRPGUdemyGame
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [17352] Host "[IP] 25.18.146.249 [Port] 0 [Flags] 2 [Guid] 4143651261 [EditorId] 4143651261 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-CQ1AACS) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [26500] Host "[IP] 25.18.146.249 [Port] 0 [Flags] 2 [Guid] 588015832 [EditorId] 588015832 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-CQ1AACS) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [17352] Host "[IP] 25.18.146.249 [Port] 0 [Flags] 2 [Guid] 4143651261 [EditorId] 4143651261 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-CQ1AACS) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [26500] Host "[IP] 25.18.146.249 [Port] 0 [Flags] 2 [Guid] 588015832 [EditorId] 588015832 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-CQ1AACS) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
-Refreshing native plugins compatible for Editor in 357.02 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 62.23 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.20f1 (577897200b8b)
 [Subsystems] Discovering subsystems at path D:/unitydownload/2021.3.20f1/Editor/Data/Resources/UnitySubsystems
@@ -67,44 +67,341 @@ Initialize mono
 Mono path[0] = 'D:/unitydownload/2021.3.20f1/Editor/Data/Managed'
 Mono path[1] = 'D:/unitydownload/2021.3.20f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'D:/unitydownload/2021.3.20f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56572
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56680
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/unitydownload/2021.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: D:/unitydownload/2021.3.20f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.294917 seconds.
+Registered in 0.001301 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 176.08 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 55.83 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  8.104 seconds
+- Completed reload, in  0.391 seconds
 Domain Reload Profiling:
-	ReloadAssembly (8106ms)
-		BeginReloadAssembly (5859ms)
+	ReloadAssembly (391ms)
+		BeginReloadAssembly (53ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (1442ms)
-			LoadAssemblies (5873ms)
+			CreateAndSetChildDomain (0ms)
+		EndReloadAssembly (283ms)
+			LoadAssemblies (52ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (861ms)
+			SetupTypeCache (66ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (47ms)
-			SetupLoadedEditorAssemblies (454ms)
+			RebuildScriptCaches (17ms)
+			SetupLoadedEditorAssemblies (168ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (19ms)
+				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (176ms)
-				BeforeProcessingInitializeOnLoad (2ms)
-				ProcessInitializeOnLoadAttributes (175ms)
-				ProcessInitializeOnLoadMethodAttributes (81ms)
+				RefreshPlugins (56ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (77ms)
+				ProcessInitializeOnLoadMethodAttributes (30ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 1.218028 seconds.
+Registered in 0.002254 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\unitydownload\20240429\Udemy\2DRPGGame\2DRPGUdemyGame\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\unitydownload\20240429\Udemy\2DRPGGame\2DRPGUdemyGame\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 57.46 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.748 seconds
+Domain Reload Profiling:
+	ReloadAssembly (749ms)
+		BeginReloadAssembly (82ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (13ms)
+		EndReloadAssembly (596ms)
+			LoadAssemblies (66ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (176ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (48ms)
+			SetupLoadedEditorAssemblies (277ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (2ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (58ms)
+				BeforeProcessingInitializeOnLoad (51ms)
+				ProcessInitializeOnLoadAttributes (142ms)
+				ProcessInitializeOnLoadMethodAttributes (22ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.65 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3747 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 35 unused Assets / (56.1 KB). Loaded Objects now: 4206.
+Memory consumption went from 142.9 MB to 142.8 MB.
+Total: 2.454700 ms (FindLiveObjects: 0.173900 ms CreateObjectMapping: 0.080000 ms MarkObjects: 2.127000 ms  DeleteObjects: 0.072900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 34167.377672 seconds.
+  path: Assets/Scripts
+  artifactKey: Guid(e0b6fdc7e939a5e4fab8849e9134a154) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts using Guid(e0b6fdc7e939a5e4fab8849e9134a154) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4cea1c0c742635de759c5a72e7b987e') in 0.013155 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002584 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\unitydownload\20240429\Udemy\2DRPGGame\2DRPGUdemyGame\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\unitydownload\20240429\Udemy\2DRPGGame\2DRPGUdemyGame\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.56 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.670 seconds
+Domain Reload Profiling:
+	ReloadAssembly (671ms)
+		BeginReloadAssembly (102ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (23ms)
+		EndReloadAssembly (504ms)
+			LoadAssemblies (74ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (152ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (231ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (36ms)
+				ProcessInitializeOnLoadAttributes (159ms)
+				ProcessInitializeOnLoadMethodAttributes (29ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.22 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3736 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 22 unused Assets / (24.6 KB). Loaded Objects now: 4209.
+Memory consumption went from 141.8 MB to 141.8 MB.
+Total: 1.867300 ms (FindLiveObjects: 0.150800 ms CreateObjectMapping: 0.069900 ms MarkObjects: 1.630600 ms  DeleteObjects: 0.015600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 111.211386 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/arch_1.png
+  artifactKey: Guid(4e2da48b5e1016949bda3d6c29a82d6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/arch_1.png using Guid(4e2da48b5e1016949bda3d6c29a82d6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c635d2bbf7d3c49c1b001edffa89634a') in 0.123275 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000075 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_1.png
+  artifactKey: Guid(040f48108d434e942aa051e194f7af7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_1.png using Guid(040f48108d434e942aa051e194f7af7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4672096b443f38c20e7192e406a9dea0') in 0.021129 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000057 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_5.png
+  artifactKey: Guid(10cbcf6de1e5d944e9ec5c7eca828155) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_5.png using Guid(10cbcf6de1e5d944e9ec5c7eca828155) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0726cabafd545d8b0f1b7817bd2a942c') in 0.022750 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_12.png
+  artifactKey: Guid(7e60f51a7eb7e2e4bb9a21821727daf5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_12.png using Guid(7e60f51a7eb7e2e4bb9a21821727daf5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42f531a4dd44bd526a52295896345b8c') in 0.032028 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_2.png
+  artifactKey: Guid(012466a9e66c54641a0e88e0b5d4d33d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_2.png using Guid(012466a9e66c54641a0e88e0b5d4d33d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14a34ff62923f26582cc779c90976a25') in 0.023813 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/arch_7.png
+  artifactKey: Guid(2ff1ab1e04276884eb1de48be63d6cce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/arch_7.png using Guid(2ff1ab1e04276884eb1de48be63d6cce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5cb9f75c74492b2feed9420af503934a') in 0.023557 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_13.png
+  artifactKey: Guid(1c90277997fa8ee4686bdb4c4bbb4edf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_13.png using Guid(1c90277997fa8ee4686bdb4c4bbb4edf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0054b90cc00970de1ad86ae5d398955d') in 0.018665 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_4.png
+  artifactKey: Guid(30e067ac12922c9459f43420a1a9b784) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_4.png using Guid(30e067ac12922c9459f43420a1a9b784) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6025ea1acf4e17c4c46087a21cc8c4f7') in 0.023762 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_9.png
+  artifactKey: Guid(76fc3ecd247b1e049a125e5eeef95ec0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_9.png using Guid(76fc3ecd247b1e049a125e5eeef95ec0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4c4e068d86cd5dafbe3654f85e064de') in 0.039142 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_6.png
+  artifactKey: Guid(743064e3458dfdc40b25b4335d18c5e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_6.png using Guid(743064e3458dfdc40b25b4335d18c5e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '312fa23a08acf0cd336cdf7393411066') in 0.028778 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/blank.png
+  artifactKey: Guid(7bae39282af46fa449bb7fd77041f40d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/blank.png using Guid(7bae39282af46fa449bb7fd77041f40d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88303e47fe42f378933112e714158052') in 0.041295 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.659755 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_14.png
+  artifactKey: Guid(5e3ab61836760cd49887fc5dc9aafcda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_14.png using Guid(5e3ab61836760cd49887fc5dc9aafcda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b17da2b1ca7fb97f6d0e597139a2548') in 0.022548 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_side_left_1.png
+  artifactKey: Guid(aa3862d8737be4944907802e10279e62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_side_left_1.png using Guid(aa3862d8737be4944907802e10279e62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e48ceda58e0e670c5e423b4a024cb0b4') in 0.024989 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_side_right_1.png
+  artifactKey: Guid(25ca45251f4632e479d3b2ca748eac76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/brick_side_right_1.png using Guid(25ca45251f4632e479d3b2ca748eac76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78b72e0a2642c0ca8e768932e3cdfc39') in 0.026918 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/ceiling_1.png
+  artifactKey: Guid(a3036aee198b81844b0cd72f1d750767) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/ceiling_1.png using Guid(a3036aee198b81844b0cd72f1d750767) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8335403d7fa21b6fc8da1777db1f368') in 0.027027 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.367529 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/ceiling_2.png
+  artifactKey: Guid(a0f92ffd401f6ed44bd416e2e52add54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/ceiling_2.png using Guid(a0f92ffd401f6ed44bd416e2e52add54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '941a97d56a24cf10ec988ce9d39c72ee') in 0.029582 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/ceiling_corner_right.png
+  artifactKey: Guid(595eec6e7a5a85149ac1bcc064d0d630) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/ceiling_corner_right.png using Guid(595eec6e7a5a85149ac1bcc064d0d630) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc4cedcc83743b68faf7213c640d70fd') in 0.042754 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/column_3.png
+  artifactKey: Guid(6f96e51e35b1f5843add46383d9ea0c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/column_3.png using Guid(6f96e51e35b1f5843add46383d9ea0c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5bef70ccf2591d3072f6a89517d15d02') in 0.018362 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/ceiling_transparent_1.png
+  artifactKey: Guid(f988be5154c920346953251be2b309d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/ceiling_transparent_1.png using Guid(f988be5154c920346953251be2b309d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8077cbfad9fdb4a9888988497a23399a') in 0.020366 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/ceiling_transparent_2.png
+  artifactKey: Guid(41702cd2b8d2cf949b785fa581caba6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/ceiling_transparent_2.png using Guid(41702cd2b8d2cf949b785fa581caba6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f1dd396cb66f566ebb1d564ada744fb') in 0.016449 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/column_4.png
+  artifactKey: Guid(a74e7db62a1363949b5015c4779759d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/column_4.png using Guid(a74e7db62a1363949b5015c4779759d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0ce31ee50d75c488b60fcb4f729b2f0') in 0.018609 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.083776 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/column_6.png
+  artifactKey: Guid(5188f6b3dbd3d8b44a3dd95b3c2580cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/column_6.png using Guid(5188f6b3dbd3d8b44a3dd95b3c2580cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69dec586d8cf35c831506f6a889a6c56') in 0.017579 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/damaged_brick_1.png
+  artifactKey: Guid(3ecc26890627ff64eaf8f2d4c1ebb6b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/damaged_brick_1.png using Guid(3ecc26890627ff64eaf8f2d4c1ebb6b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ecb9cc7dda6bcb233495adcf3a0a5717') in 0.025655 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/damaged_brick_2.png
+  artifactKey: Guid(94da0f710e3e2d04fbb4d1218a34f8f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/damaged_brick_2.png using Guid(94da0f710e3e2d04fbb4d1218a34f8f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67a0c36c27d64b771bf22ec731fd6622') in 0.020308 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/damaged_brick_3.png
+  artifactKey: Guid(b9f4667dd135ffb41bdaa37f4af99a86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/damaged_brick_3.png using Guid(b9f4667dd135ffb41bdaa37f4af99a86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca00f4c95a181d3c5e90fe97b254751b') in 0.020444 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.160817 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/floor_tile_2.png
+  artifactKey: Guid(4be2c34154b4b20429143bf5a0400d64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/floor_tile_2.png using Guid(4be2c34154b4b20429143bf5a0400d64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a70051efba56cb2e1b313e7a8bd79c2') in 0.021931 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/floor_tile_carpet_2.png
+  artifactKey: Guid(85be1dce0299c4648a5579365f7b7043) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/floor_tile_carpet_2.png using Guid(85be1dce0299c4648a5579365f7b7043) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd46e9a0c9b52b33cf391e88c5419ac45') in 0.018307 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/floor_tile_carpet_1.png
+  artifactKey: Guid(7365dce33644f064e8c1bff7c058cf2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/floor_tile_carpet_1.png using Guid(7365dce33644f064e8c1bff7c058cf2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56bc2d20fc31a8d55b1628df536b31ba') in 0.024132 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Graphics/Surroundings/Medieval_Castle/Tiles/floor_tile_4.png
+  artifactKey: Guid(26075e6099ebb844aaf0a6405ebb02f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Surroundings/Medieval_Castle/Tiles/floor_tile_4.png using Guid(26075e6099ebb844aaf0a6405ebb02f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '807760c0eb797645ea9ad301b423741b') in 0.026061 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
