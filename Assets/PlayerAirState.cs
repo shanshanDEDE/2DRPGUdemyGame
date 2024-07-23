@@ -23,10 +23,24 @@ public class PlayerAirState : PlayerState
     {
         base.Update();
 
+        if (xInput != 0 && player.facingDir != xInput)      //我自己加的,用來防止角色往反方向動畫slide
+        {
+            stateMachine.ChangeState(player.idleState);
+        }
+        else
+        if (player.IsWallDetected())
+        {
+            stateMachine.ChangeState(player.wallSlide);
+        }
+
         if (player.IsGroundDetected())
         {
             stateMachine.ChangeState(player.idleState);
         }
 
+        if (xInput != 0)
+        {
+            player.setVelocity(xInput * player.moveSpeed * .8f, rb.velocity.y);
+        }
     }
 }

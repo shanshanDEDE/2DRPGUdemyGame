@@ -24,6 +24,11 @@ public class PlayerJumpState : PlayerState
     {
         base.Update();
 
+        if (xInput != 0)                                                                //我自己加的讓角色一跳起來就可以左右移動,增加控制性
+        {
+            player.setVelocity(xInput * player.moveSpeed * .8f, rb.velocity.y);
+        }
+
         if (player.rb.velocity.y < 0f)
         {
             stateMachine.ChangeState(player.airState);

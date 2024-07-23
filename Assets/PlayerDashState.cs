@@ -25,6 +25,12 @@ public class PlayerDashState : PlayerState
     public override void Update()
     {
         base.Update();
+
+        if (!player.IsGroundDetected() && player.IsWallDetected())                             //防止角色在空中貼牆時可以衝刺
+        {
+            stateMachine.ChangeState(player.wallSlide);
+        }
+
         player.setVelocity(player.dashDir * player.dashSpeed, 0);
 
         if (stateTimer < 0)
