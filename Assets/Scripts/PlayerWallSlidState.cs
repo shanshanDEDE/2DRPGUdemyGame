@@ -37,6 +37,12 @@ public class PlayerWallSlidState : PlayerState
         else
             rb.velocity = new Vector2(0, rb.velocity.y * .7f);
 
+        //我自己加的!player.IsGroundDetected() && !player.IsWallDetected()判斷式，用來防止角色在空中貼牆後沒牆壁時還會保持貼牆下滑動作
+        if (!player.IsGroundDetected() && !player.IsWallDetected())
+        {
+            stateMachine.ChangeState(player.airState);
+        }
+        else
         if (player.IsGroundDetected())
             stateMachine.ChangeState(player.idleState);
     }

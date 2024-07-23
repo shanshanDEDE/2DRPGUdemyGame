@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\PlayerDashState.cs" />
      <Compile Include="Assets\Scripts\PlayerState.cs" />
      <Compile Include="Assets\Scripts\PlayerMoveState.cs" />
+     <Compile Include="Assets\Scripts\ParallaxBackGround.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:\unitydownload\2021.3.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -801,6 +802,45 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
         <HintPath>D:\unitydownload\20240429\Udemy\2DRPGGame\2DRPGUdemyGame\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Sequences.Editor">
+        <HintPath>D:\unitydownload\20240429\Udemy\2DRPGGame\2DRPGUdemyGame\Library\ScriptAssemblies\Unity.Sequences.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Recorder">
+        <HintPath>D:\unitydownload\20240429\Udemy\2DRPGGame\2DRPGUdemyGame\Library\ScriptAssemblies\Unity.Recorder.dll</HintPath>
+    </Reference>
+    <Reference Include="Autodesk.Fbx">
+        <HintPath>D:\unitydownload\20240429\Udemy\2DRPGGame\2DRPGUdemyGame\Library\ScriptAssemblies\Autodesk.Fbx.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Formats.Alembic.Editor">
+        <HintPath>D:\unitydownload\20240429\Udemy\2DRPGGame\2DRPGUdemyGame\Library\ScriptAssemblies\Unity.Formats.Alembic.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Sequences">
+        <HintPath>D:\unitydownload\20240429\Udemy\2DRPGGame\2DRPGUdemyGame\Library\ScriptAssemblies\Unity.Sequences.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Recorder.Base">
+        <HintPath>D:\unitydownload\20240429\Udemy\2DRPGGame\2DRPGUdemyGame\Library\ScriptAssemblies\Unity.Recorder.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Autodesk.Fbx.Editor">
+        <HintPath>D:\unitydownload\20240429\Udemy\2DRPGGame\2DRPGUdemyGame\Library\ScriptAssemblies\Autodesk.Fbx.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Formats.Fbx.Editor">
+        <HintPath>D:\unitydownload\20240429\Udemy\2DRPGGame\2DRPGUdemyGame\Library\ScriptAssemblies\Unity.Formats.Fbx.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+        <HintPath>D:\unitydownload\20240429\Udemy\2DRPGGame\2DRPGUdemyGame\Library\ScriptAssemblies\Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Formats.Alembic.Runtime">
+        <HintPath>D:\unitydownload\20240429\Udemy\2DRPGGame\2DRPGUdemyGame\Library\ScriptAssemblies\Unity.Formats.Alembic.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+        <HintPath>D:\unitydownload\20240429\Udemy\2DRPGGame\2DRPGUdemyGame\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Recorder.Editor">
+        <HintPath>D:\unitydownload\20240429\Udemy\2DRPGGame\2DRPGUdemyGame\Library\ScriptAssemblies\Unity.Recorder.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Formats.Fbx.Runtime">
+        <HintPath>D:\unitydownload\20240429\Udemy\2DRPGGame\2DRPGUdemyGame\Library\ScriptAssemblies\Unity.Formats.Fbx.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
