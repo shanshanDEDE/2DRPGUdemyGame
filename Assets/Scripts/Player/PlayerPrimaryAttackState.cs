@@ -67,7 +67,7 @@ public class PlayerPrimaryAttackState : PlayerState
 
         if (stateTimer < 0)                                       //當計時器<0時，才停止玩家移動,達到移動攻擊有慣性移動一下的效果
         {
-            player.ZeroVelocity();
+            player.SetZeroVelocity();
         }
 
         if (triggerCalled)

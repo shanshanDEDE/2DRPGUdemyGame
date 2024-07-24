@@ -37,9 +37,12 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Player\PlayerAnimationTriggers.cs" />
+     <Compile Include="Assets\Enemy_Skeleton.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerWallJumpState.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerJumpState.cs" />
+     <Compile Include="Assets\SkeletonBattleState.cs" />
      <Compile Include="Assets\EnemyStateMachine.cs" />
+     <Compile Include="Assets\SkeletonIdleState.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerIdleState.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerAirState.cs" />
@@ -53,10 +56,11 @@
      <Compile Include="Assets\Scripts\Player\PlayerState.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMoveState.cs" />
      <Compile Include="Assets\Enemy.cs" />
-     <Compile Include="Assets\EnemyState.cs" />
-     <Compile Include="Assets\Enemy_Skeleton.cs" />
-     <Compile Include="Assets\SkeletonIdleState.cs" />
      <Compile Include="Assets\SkeletonMoveState.cs" />
+     <Compile Include="Assets\EnemyState.cs" />
+     <Compile Include="Assets\SkeletonGroundState.cs" />
+     <Compile Include="Assets\SkeletonAttackState.cs" />
+     <Compile Include="Assets\Enemy_SkeletonAnimationTriggers.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:\unitydownload\2021.3.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

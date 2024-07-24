@@ -22,24 +22,24 @@ public class Entity : MonoBehaviour
     protected bool facingRight = true;
 
 
-   protected virtual void Awake()
-   {
+    protected virtual void Awake()
+    {
 
-   }
+    }
 
-   protected virtual void Start()
-   {
+    protected virtual void Start()
+    {
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
-   }
+    }
 
-   protected virtual void Update()
-   {
+    protected virtual void Update()
+    {
 
-   }
+    }
 
     #region Velocity
-    public void ZeroVelocity() => rb.velocity = new Vector2(0, 0);
+    public void SetZeroVelocity() => rb.velocity = new Vector2(0, 0);
 
     public void SetVelocity(float _xVelocity, float _yVelocity)
     {

@@ -46,7 +46,6 @@ public class PlayerState
 
     public virtual void AnimationFinishTrigger()
     {
-
         triggerCalled = true;
     }
 }
