@@ -43,7 +43,7 @@ public class PlayerPrimaryAttackState : PlayerState
             attackDir = xInput;
         }
 
-        player.setVelocity(player.attackMovement[comboCounter].x * attackDir, player.attackMovement[comboCounter].y);
+        player.SetVelocity(player.attackMovement[comboCounter].x * attackDir, player.attackMovement[comboCounter].y);
 
         stateTimer = .1f;                                        //設定狀態機共用的計時器(這邊用來設定攻擊後多久才停止移動,來製作慣性的效果)
     }

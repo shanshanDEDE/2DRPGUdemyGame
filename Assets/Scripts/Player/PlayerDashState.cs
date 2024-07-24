@@ -19,7 +19,7 @@ public class PlayerDashState : PlayerState
     {
         base.Exit();
 
-        player.setVelocity(0f, rb.velocity.y);
+        player.SetVelocity(0f, rb.velocity.y);
     }
 
     public override void Update()
@@ -31,7 +31,7 @@ public class PlayerDashState : PlayerState
             stateMachine.ChangeState(player.wallSlide);
         }
 
-        player.setVelocity(player.dashDir * player.dashSpeed, 0);
+        player.SetVelocity(player.dashDir * player.dashSpeed, 0);
 
         if (stateTimer < 0)
             stateMachine.ChangeState(player.idleState);
