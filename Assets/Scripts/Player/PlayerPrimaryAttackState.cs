@@ -18,6 +18,7 @@ public class PlayerPrimaryAttackState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        xInput = 0;       //用這個來修復攻擊方向不正確的bug
 
         if (comboCounter > 2 || Time.time >= lastTimeAttacked + comboWindow)
         {
