@@ -6,6 +6,7 @@ public class Player : Entity
 {
     [Header("攻擊細節")]
     public Vector2[] attackMovement;                          //每段主要攻擊的位移大小
+    public float counterAttackDuration = 0.2f;
 
     public bool isBusy { get; private set; }                //用來放在協成中，確認是否正在動作,如果再動作可以用來防止移動
 
@@ -31,8 +32,10 @@ public class Player : Entity
     public PlayerWallSlidState wallSlide { get; private set; }
     public PlayerDashState dashState { get; private set; }
     public PlayerWallJumpState wallJump { get; private set; }
-    public PlayerPrimaryAttackState primaryAttack { get; private set; }
 
+
+    public PlayerPrimaryAttackState primaryAttack { get; private set; }
+    public PlayerCounterAttackState counterAttack { get; private set; }
     #endregion
 
     protected override void Awake()
@@ -47,7 +50,9 @@ public class Player : Entity
         dashState = new PlayerDashState(this, stateMachine, "Dash");
         wallSlide = new PlayerWallSlidState(this, stateMachine, "WallSlide");
         wallJump = new PlayerWallJumpState(this, stateMachine, "Jump");
+
         primaryAttack = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
+        counterAttack = new PlayerCounterAttackState(this, stateMachine, "CounterAttack");
     }
 
     protected override void Start()
