@@ -18,7 +18,9 @@ public class SkeletonBattleState : EnemyState
     public override void Enter()
     {
         base.Enter();
-        player = GameObject.Find("Player").transform;
+        //player = GameObject.Find("Player").transform;
+        player = PlayerManager.instance.player.transform;
+        //透過PlayerManager並使用單例模式來尋找會比起GameObject.Find 有效率更多,因為GameObject.Find會搜尋全部物件來找到目標
     }
 
 

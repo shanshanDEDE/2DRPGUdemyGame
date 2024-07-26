@@ -15,8 +15,8 @@ public class Player : Entity
     public float jumpForce;
 
     [Header("衝刺資料")]
-    [SerializeField] private float dashCoolDown;
-    private float dashUsageTimer;
+    //[SerializeField] private float dashCoolDown;
+    //private float dashUsageTimer;
     public float dashSpeed;
     public float dashDuration;
     public float dashDir { get; private set; }
@@ -85,11 +85,12 @@ public class Player : Entity
         if (IsWallDetected())    //防止貼牆滑行狀態時可以衝刺
             return;
 
-        dashUsageTimer -= Time.deltaTime;
-
-        if (Input.GetKeyDown(KeyCode.Q) && dashUsageTimer < 0)
+        //改成用SkillManager的方法來做冷卻及是否攻擊的判斷
+        //dashUsageTimer -= Time.deltaTime;
+        //if (Input.GetKeyDown(KeyCode.Q) && dashUsageTimer < 0)
+        if (Input.GetKeyDown(KeyCode.Q) && SkillerManager.instance.dash.CanUseSkill())
         {
-            dashUsageTimer = dashCoolDown;
+            //dashUsageTimer = dashCoolDown;
             dashDir = Input.GetAxisRaw("Horizontal");
 
             if (dashDir == 0)
