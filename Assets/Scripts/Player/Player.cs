@@ -22,6 +22,9 @@ public class Player : Entity
     public float dashDir { get; private set; }
 
 
+    public SkillerManager skill { get; private set; }
+
+
     #region States
     public PlayerStateMachine stateMachine { get; private set; }
 
@@ -58,6 +61,8 @@ public class Player : Entity
     protected override void Start()
     {
         base.Start();
+
+        skill = SkillerManager.instance;
 
         stateMachine.Initialize(moveState);
     }

@@ -65,9 +65,11 @@
      <Compile Include="Assets\Scripts\Enemy\Skeleton\SkeletonMoveState.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyState.cs" />
      <Compile Include="Assets\Scripts\PlayerManager.cs" />
-     <Compile Include="Assets\Scripts\SkillerManager.cs" />
-     <Compile Include="Assets\Scripts\Skill.cs" />
-     <Compile Include="Assets\Scripts\Dash_Skill.cs" />
+     <Compile Include="Assets\Scripts\Skills\SkillerManager.cs" />
+     <Compile Include="Assets\Scripts\Skills\Skill.cs" />
+     <Compile Include="Assets\Scripts\Skills\Dash_Skill.cs" />
+     <Compile Include="Assets\Scripts\Skills\Clone_Skill.cs" />
+     <Compile Include="Assets\Clone_Skill_Controller.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:\unitydownload\2021.3.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
