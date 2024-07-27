@@ -9,6 +9,13 @@ public class Skill : MonoBehaviour
     [SerializeField] protected float cooldown;
     protected float cooldownTimer;
 
+    protected Player player;
+
+    protected virtual void Start()
+    {
+        player = PlayerManager.instance.player.gameObject.GetComponent<Player>();
+    }
+
     protected virtual void Update()
     {
         cooldownTimer -= Time.deltaTime;

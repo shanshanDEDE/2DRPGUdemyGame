@@ -24,4 +24,9 @@ public class PlayerAnimationTriggers : MonoBehaviour
             }
         }
     }
+
+    private void ThrowSword()
+    {
+        SkillerManager.instance.sword.CreateSword();
+    }
 }
