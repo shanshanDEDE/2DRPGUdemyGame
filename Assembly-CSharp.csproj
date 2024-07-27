@@ -37,7 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Player\PlayerCounterAttackState.cs" />
-     <Compile Include="Assets\Sword_Skill_Controller.cs" />
+     <Compile Include="Assets\Scripts\Skills\Skill_Controllers\Sword_Skill_Controller.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerAnimationTriggers.cs" />
      <Compile Include="Assets\Scripts\Enemy\Skeleton\SkeletonGroundState.cs" />
      <Compile Include="Assets\Scripts\PlayerManager.cs" />
@@ -48,7 +48,7 @@
      <Compile Include="Assets\Scripts\Enemy\Skeleton\SkeletonBattleState.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyStateMachine.cs" />
      <Compile Include="Assets\Scripts\Enemy\Skeleton\SkeletonIdleState.cs" />
-     <Compile Include="Assets\Scripts\Clone_Skill_Controller.cs" />
+     <Compile Include="Assets\Scripts\Skills\Skill_Controllers\Clone_Skill_Controller.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerIdleState.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Enemy\Skeleton\Enemy_SkeletonAnimationTriggers.cs" />

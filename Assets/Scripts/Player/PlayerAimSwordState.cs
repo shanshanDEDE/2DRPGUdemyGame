@@ -20,15 +20,28 @@ public class PlayerAimSwordState : PlayerState
     {
         base.Exit();
 
+        player.StartCoroutine("BusyFor", .2f);
     }
 
     public override void Update()
     {
         base.Update();
+        player.SetZeroVelocity();     //我也搞不是很懂 但不加這行或是把這行寫在Entry的話 如果角色移動中進到瞄準狀態 會一直往前划過去
 
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             stateMachine.ChangeState(player.idleState);
+        }
+
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (player.transform.position.x > mousePosition.x && player.facingDir == 1)
+        {
+            player.Flip();
+        }
+        else if (player.transform.position.x < mousePosition.x && player.facingDir == -1)
+        {
+            player.Flip();
         }
     }
 }

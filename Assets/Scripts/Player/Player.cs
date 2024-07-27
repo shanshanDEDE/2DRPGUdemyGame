@@ -13,6 +13,7 @@ public class Player : Entity
     [Header("移動資料")]
     public float moveSpeed = 12f;
     public float jumpForce;
+    public float swordReturnImpact;
 
     [Header("衝刺資料")]
     //[SerializeField] private float dashCoolDown;
@@ -23,7 +24,7 @@ public class Player : Entity
 
 
     public SkillerManager skill { get; private set; }
-    public GameObject sword; // { get; private set; }
+    public GameObject sword { get; private set; }
 
 
     #region States
@@ -87,8 +88,9 @@ public class Player : Entity
         sword = _newSword;
     }
 
-    public void ClearTheSword()
+    public void CatchTheSword()
     {
+        stateMachine.ChangeState(catchSword);
         Destroy(sword);
     }
 

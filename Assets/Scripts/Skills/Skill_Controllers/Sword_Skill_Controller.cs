@@ -33,7 +33,8 @@ public class Sword_Skill_Controller : MonoBehaviour
     //劍返需要改回來的一些設定
     public void ReturnSword()
     {
-        rb.isKinematic = false;
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;          //鎖定位置跟旋轉,透過動畫繞他看起來動就好
+        //rb.isKinematic = false;
         transform.parent = null;
         isReturning = true;
     }
@@ -48,13 +49,16 @@ public class Sword_Skill_Controller : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, returnSpeed * Time.deltaTime);
 
             if (Vector2.Distance(transform.position, player.transform.position) < 1f)
-                player.ClearTheSword();
+                player.CatchTheSword();
         }
     }
 
     //用來讓劍插在物件身上
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (isReturning)                                 //防止劍飛回來時會攻擊到敵人(可依遊戲性判斷要不要加)
+            return;
+
         animator.SetBool("Rotation", false);
 
         canRotate = false;

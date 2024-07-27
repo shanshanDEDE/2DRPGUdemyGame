@@ -1448,9 +1448,9 @@ MonoBehaviour:
   counterAttackDuration: 0.2
   moveSpeed: 8
   jumpForce: 12
+  swordReturnImpact: 6
   dashSpeed: 25
   dashDuration: 0.2
-  sword: {fileID: 0}
 --- !u!70 &1075223063
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
