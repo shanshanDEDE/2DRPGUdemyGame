@@ -2,8 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum SwordType
+{
+    regular,            //常規
+    Bounce,             //彈跳
+    Price,              //價格
+    Spin                //旋轉
+}
+
 public class Sword_Skill : Skill
 {
+    public SwordType swordType;
+
+    [Header("Bounce info")]
+    [SerializeField] private int amountOfBounce;
+    [SerializeField] private float bounceGravity;
+
     [Header("Sword_Skill")]
     [SerializeField] private GameObject swordPrefab;
     [SerializeField] private Vector2 launchForce;
@@ -46,16 +60,22 @@ public class Sword_Skill : Skill
 
         GameObject newSword = Instantiate(swordPrefab, player.transform.position, transform.rotation);
 
-        Sword_Skill_Controller swordScript = newSword.GetComponent<Sword_Skill_Controller>();
+        Sword_Skill_Controller newSwordScript = newSword.GetComponent<Sword_Skill_Controller>();
 
-        swordScript.SetupSword(finalDir, swordGravity, player);
+        if (swordType == SwordType.Bounce)
+        {
+            swordGravity = bounceGravity;
+            newSwordScript.SetupBounce(true, amountOfBounce);
+        }
+
+        newSwordScript.SetupSword(finalDir, swordGravity, player);
 
         player.AssignNewSword(newSword);
 
         DotsActive(false);
     }
 
-
+    #region Aim region
     //用這個方法來取得玩家滑鼠的位置
     public Vector2 AinDirection()
     {
@@ -96,4 +116,5 @@ public class Sword_Skill : Skill
         return position;
 
     }
+    #endregion
 }
