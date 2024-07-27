@@ -23,6 +23,7 @@ public class Player : Entity
 
 
     public SkillerManager skill { get; private set; }
+    public GameObject sword; // { get; private set; }
 
 
     #region States
@@ -79,6 +80,16 @@ public class Player : Entity
         stateMachine.currentState.Update();
 
         CheckForDashInput();
+    }
+
+    public void AssignNewSword(GameObject _newSword)
+    {
+        sword = _newSword;
+    }
+
+    public void ClearTheSword()
+    {
+        Destroy(sword);
     }
 
     //這個協成可以用來防止玩家一直在攻擊的期間,中間的空窗期會讓idelstate中的移動問題

@@ -22,7 +22,7 @@ public class PlayerGroundedState : PlayerState
     {
         base.Update();
 
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse1) && HasNoSword()) //這邊用HasNoSword()方法來做判斷還有有多一個好處,就是可以防止劍插到東西以前玩家就先按返回了
             stateMachine.ChangeState(player.aimSword);
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -44,5 +44,16 @@ public class PlayerGroundedState : PlayerState
             stateMachine.ChangeState(player.jumpState);
         }
 
+    }
+
+    private bool HasNoSword()
+    {
+
+        if (!player.sword)
+            return true;
+
+        player.sword.GetComponent<Sword_Skill_Controller>().ReturnSword();
+
+        return false;
     }
 }

@@ -970,8 +970,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 0
   swordPrefab: {fileID: 507176689426067487, guid: bb4a0bc85f72c2d40a551b9cfaaa5786, type: 3}
-  launchForce: {x: 15, y: 20}
-  swordGravity: 2.5
+  launchForce: {x: 35, y: 25}
+  swordGravity: 4.5
   numberOfDots: 20
   spaceBeetwenDots: 0.07
   dotPrefab: {fileID: 2761461401665009529, guid: 0d5066bceab5c38428fa5f552e6c4b48, type: 3}
@@ -1450,6 +1450,7 @@ MonoBehaviour:
   jumpForce: 12
   dashSpeed: 25
   dashDuration: 0.2
+  sword: {fileID: 0}
 --- !u!70 &1075223063
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -7550,17 +7551,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sword
       objectReference: {fileID: 0}
-    - target: {fileID: 507176689426067487, guid: bb4a0bc85f72c2d40a551b9cfaaa5786, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1987936243937596900, guid: bb4a0bc85f72c2d40a551b9cfaaa5786, type: 3}
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1987936243937596900, guid: bb4a0bc85f72c2d40a551b9cfaaa5786, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.39
+      value: -3.88
       objectReference: {fileID: 0}
     - target: {fileID: 1987936243937596900, guid: bb4a0bc85f72c2d40a551b9cfaaa5786, type: 3}
       propertyPath: m_LocalPosition.y
