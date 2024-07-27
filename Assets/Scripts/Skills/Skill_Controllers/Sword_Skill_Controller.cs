@@ -13,10 +13,13 @@ public class Sword_Skill_Controller : MonoBehaviour
     private bool canRotate = true;
     private bool isReturning;
 
+    [Header("Pierce info")]
+    [SerializeField] private int pierceAmount;
+
     [Header("Bounce info")]
     [SerializeField] private float bounceSpeed;
     private bool isBouncing;                        //判斷是否為彈跳效果的劍
-    private int amountOfBounce;
+    private int bounceAmount;
     private List<Transform> enemyTarget;
     private int targetIndex;
 
@@ -34,16 +37,22 @@ public class Sword_Skill_Controller : MonoBehaviour
         rb.velocity = _dir;
         rb.gravityScale = _gravityScale;
 
-        animator.SetBool("Rotation", true);
+        if (pierceAmount <= 0)
+            animator.SetBool("Rotation", true);
     }
 
     public void SetupBounce(bool _isBouncing, int _amountOfBounce)
     {
         isBouncing = _isBouncing;
-        amountOfBounce = _amountOfBounce;
+        bounceAmount = _amountOfBounce;
 
         //由於private List<Transform> enemyTarget;設為private的話unity會因為private而不會創建,因此這邊需要先實力化
         enemyTarget = new List<Transform>();
+    }
+
+    public void SetupPierce(int _pierceAmount)
+    {
+        pierceAmount = _pierceAmount;
     }
 
     //劍返需要改回來的一些設定
@@ -84,9 +93,9 @@ public class Sword_Skill_Controller : MonoBehaviour
             if (Vector2.Distance(transform.position, enemyTarget[targetIndex].position) < 1f)
             {
                 targetIndex++;
-                amountOfBounce--;
+                bounceAmount--;
 
-                if (amountOfBounce <= 0)
+                if (bounceAmount <= 0)
                 {
                     isBouncing = false;
                     isReturning = true;                 //讓劍飛回來
@@ -103,6 +112,8 @@ public class Sword_Skill_Controller : MonoBehaviour
     {
         if (isReturning)                                 //防止劍飛回來時會攻擊到敵人(可依遊戲性判斷要不要加)
             return;
+
+        collision.GetComponent<Enemy>()?.Damage();
 
         //如果碰撞的是敵人
         if (collision.GetComponent<Enemy>() != null)
@@ -127,6 +138,11 @@ public class Sword_Skill_Controller : MonoBehaviour
     //碰撞後的處理
     private void StuckInto(Collider2D collision)
     {
+        if (pierceAmount > 0 && collision.GetComponent<Enemy>() != null)        //如果碰撞的是敵人並且還有穿透力
+        {
+            pierceAmount--;
+            return;
+        }
 
         canRotate = false;
         cd.enabled = false;                              //將圓形碰撞器關掉,這樣的話劍返回就不會再次觸發碰撞
