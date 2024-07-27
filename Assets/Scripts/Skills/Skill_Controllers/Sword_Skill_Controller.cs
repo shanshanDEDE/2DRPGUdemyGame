@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,7 @@ public class Sword_Skill_Controller : MonoBehaviour
     private bool isReturning;
 
     [Header("Pierce info")]
-    [SerializeField] private int pierceAmount;
+    private int pierceAmount;
 
     [Header("Bounce info")]
     [SerializeField] private float bounceSpeed;
@@ -22,6 +23,18 @@ public class Sword_Skill_Controller : MonoBehaviour
     private int bounceAmount;
     private List<Transform> enemyTarget;
     private int targetIndex;
+
+    [Header("Spin info")]
+    private float maxTravelDistance;
+    private float spinDuration;
+    private float spinTimer;
+    private bool wasStopped;
+    private bool isSpinning;
+
+    private float hitTimer;
+    private float hitCooldown;
+
+    private float springDirection;
 
     private void Awake()
     {
@@ -39,6 +52,8 @@ public class Sword_Skill_Controller : MonoBehaviour
 
         if (pierceAmount <= 0)
             animator.SetBool("Rotation", true);
+
+        springDirection = Math.Clamp(rb.velocity.x, -1f, 1f);//透過初始速度決定方向,並且防止超出範圍
     }
 
     public void SetupBounce(bool _isBouncing, int _amountOfBounce)
@@ -53,6 +68,14 @@ public class Sword_Skill_Controller : MonoBehaviour
     public void SetupPierce(int _pierceAmount)
     {
         pierceAmount = _pierceAmount;
+    }
+
+    public void SetupSpin(bool _isSpinning, float _maxTravelDistance, float _spinDuration, float _hitCooldown)
+    {
+        isSpinning = _isSpinning;
+        maxTravelDistance = _maxTravelDistance;
+        spinDuration = _spinDuration;
+        hitCooldown = _hitCooldown;
     }
 
     //劍返需要改回來的一些設定
@@ -78,6 +101,58 @@ public class Sword_Skill_Controller : MonoBehaviour
         }
 
         BounceLogic(); //彈跳劍的邏輯,裡面會判斷是否為彈跳劍
+
+        SpinLogic();   //旋轉劍的邏輯,裡面會判斷是否為旋轉劍
+    }
+
+    //旋轉劍的邏輯,裡面會判斷是否為旋轉劍
+    private void SpinLogic()
+    {
+        if (isSpinning)
+        {
+            if (Vector2.Distance(player.transform.position, transform.position) > maxTravelDistance && !wasStopped)
+            {
+                StopWhenSpinning();
+            }
+
+            if (wasStopped)
+            {
+                spinTimer -= Time.deltaTime;
+
+                //旋轉到指定位置停止後 下面這行可以讓他漸漸往前(這邊老師只有做x軸前後)一點
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x + springDirection, transform.position.y), 1.5f * Time.deltaTime);
+
+                if (spinTimer <= 0)
+                {
+                    isSpinning = false;
+                    isReturning = true;
+                }
+
+                hitTimer -= Time.deltaTime;
+
+                if (hitTimer < 0)
+                {
+                    hitTimer = hitCooldown;
+
+                    Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1);        //將附近的敵人放進陣列
+
+                    foreach (var hit in colliders)
+                    {
+                        if (hit.GetComponent<Enemy>() != null)
+                        {
+                            hit.GetComponent<Enemy>().Damage();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private void StopWhenSpinning()
+    {
+        wasStopped = true;
+        rb.constraints = RigidbodyConstraints2D.FreezePosition;
+        spinTimer = spinDuration;
     }
 
     //彈跳劍的邏輯,裡面會判斷是否為彈跳劍
@@ -92,6 +167,8 @@ public class Sword_Skill_Controller : MonoBehaviour
             //判斷是否到達敵人
             if (Vector2.Distance(transform.position, enemyTarget[targetIndex].position) < 1f)
             {
+                enemyTarget[targetIndex].GetComponent<Enemy>().Damage();
+
                 targetIndex++;
                 bounceAmount--;
 
@@ -115,6 +192,13 @@ public class Sword_Skill_Controller : MonoBehaviour
 
         collision.GetComponent<Enemy>()?.Damage();
 
+        SetUpTargetsForBounce(collision);
+
+        StuckInto(collision);                                               //碰撞後的處理
+    }
+
+    private void SetUpTargetsForBounce(Collider2D collision)
+    {
         //如果碰撞的是敵人
         if (collision.GetComponent<Enemy>() != null)
         {
@@ -131,8 +215,6 @@ public class Sword_Skill_Controller : MonoBehaviour
                 }
             }
         }
-
-        StuckInto(collision);                                               //碰撞後的處理
     }
 
     //碰撞後的處理
@@ -141,6 +223,12 @@ public class Sword_Skill_Controller : MonoBehaviour
         if (pierceAmount > 0 && collision.GetComponent<Enemy>() != null)        //如果碰撞的是敵人並且還有穿透力
         {
             pierceAmount--;
+            return;
+        }
+
+        if (isSpinning)
+        {
+            StopWhenSpinning();
             return;
         }
 
