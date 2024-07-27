@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public class Enemy : Entity
@@ -16,6 +17,7 @@ public class Enemy : Entity
     public float moveSpeed;
     public float idleTime;
     public float battleTime;
+    private float defaultMoveSpeed;
 
 
     [Header("攻擊資訊")]
@@ -31,6 +33,8 @@ public class Enemy : Entity
     {
         base.Awake();
         stateMachine = new EnemyStateMachine();
+
+        defaultMoveSpeed = moveSpeed;
     }
 
     protected override void Update()
@@ -39,6 +43,30 @@ public class Enemy : Entity
         stateMachine.currentState.Update();
     }
 
+    public virtual void FreezeTime(bool _timeFrozem)
+    {
+        if (_timeFrozem)
+        {
+            moveSpeed = 0;
+            anim.speed = 0;
+        }
+        else
+        {
+            moveSpeed = defaultMoveSpeed;
+            anim.speed = 1;
+        }
+    }
+
+    protected virtual IEnumerator FreezeTimeFor(float _seconds)
+    {
+        FreezeTime(true);
+
+        yield return new WaitForSeconds(_seconds);
+
+        FreezeTime(false);
+    }
+
+    #region Counter Attack Window
     public virtual void OpenCounterAttackWindow()
     {
         canBeStunned = true;
@@ -50,6 +78,7 @@ public class Enemy : Entity
         canBeStunned = false;
         counterImage.SetActive(false);
     }
+    #endregion
 
     public virtual bool CanBeStunned()
     {

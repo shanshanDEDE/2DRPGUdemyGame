@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Sword_Skill_Controller : MonoBehaviour
 {
-    [SerializeField] private float returnSpeed = 12;
     private Animator animator;
     private Rigidbody2D rb;
     private CircleCollider2D cd;
@@ -14,11 +13,14 @@ public class Sword_Skill_Controller : MonoBehaviour
     private bool canRotate = true;
     private bool isReturning;
 
+    private float freezeTimeDuration;
+    private float returnSpeed = 12;
+
     [Header("Pierce info")]
     private int pierceAmount;
 
     [Header("Bounce info")]
-    [SerializeField] private float bounceSpeed;
+    private float bounceSpeed;
     private bool isBouncing;                        //判斷是否為彈跳效果的劍
     private int bounceAmount;
     private List<Transform> enemyTarget;
@@ -43,23 +45,33 @@ public class Sword_Skill_Controller : MonoBehaviour
         cd = GetComponent<CircleCollider2D>();
     }
 
-    public void SetupSword(Vector2 _dir, float _gravityScale, Player _player)
+    private void DestroyMe()
+    {
+        Destroy(gameObject);
+    }
+
+    public void SetupSword(Vector2 _dir, float _gravityScale, Player _player, float _freezeTimeDuration, float _returnSpeed)
     {
         player = _player;
+        freezeTimeDuration = _freezeTimeDuration;
 
         rb.velocity = _dir;
         rb.gravityScale = _gravityScale;
+        returnSpeed = _returnSpeed;
 
         if (pierceAmount <= 0)
             animator.SetBool("Rotation", true);
 
         springDirection = Math.Clamp(rb.velocity.x, -1f, 1f);//透過初始速度決定方向,並且防止超出範圍
+
+        Invoke("DestroyMe", 7);             //一段時間後刪除自己
     }
 
-    public void SetupBounce(bool _isBouncing, int _amountOfBounce)
+    public void SetupBounce(bool _isBouncing, int _amountOfBounce, float _bounceSpeed)
     {
         isBouncing = _isBouncing;
         bounceAmount = _amountOfBounce;
+        bounceSpeed = _bounceSpeed;
 
         //由於private List<Transform> enemyTarget;設為private的話unity會因為private而不會創建,因此這邊需要先實力化
         enemyTarget = new List<Transform>();
@@ -140,7 +152,7 @@ public class Sword_Skill_Controller : MonoBehaviour
                     {
                         if (hit.GetComponent<Enemy>() != null)
                         {
-                            hit.GetComponent<Enemy>().Damage();
+                            SwordSkillDamage(hit.GetComponent<Enemy>());
                         }
                     }
                 }
@@ -167,7 +179,7 @@ public class Sword_Skill_Controller : MonoBehaviour
             //判斷是否到達敵人
             if (Vector2.Distance(transform.position, enemyTarget[targetIndex].position) < 1f)
             {
-                enemyTarget[targetIndex].GetComponent<Enemy>().Damage();
+                SwordSkillDamage(enemyTarget[targetIndex].GetComponent<Enemy>());  //對敵人用飛劍技能造成傷害及效果
 
                 targetIndex++;
                 bounceAmount--;
@@ -190,11 +202,26 @@ public class Sword_Skill_Controller : MonoBehaviour
         if (isReturning)                                 //防止劍飛回來時會攻擊到敵人(可依遊戲性判斷要不要加)
             return;
 
-        collision.GetComponent<Enemy>()?.Damage();
+
+
+        if (collision.GetComponent<Enemy>() != null)
+        {
+            Enemy enemy = collision.GetComponent<Enemy>();
+            SwordSkillDamage(enemy);
+
+        }
+
+        //collision.GetComponent<Enemy>()?.Damage();
 
         SetUpTargetsForBounce(collision);
 
         StuckInto(collision);                                               //碰撞後的處理
+    }
+
+    private void SwordSkillDamage(Enemy enemy)
+    {
+        enemy.Damage();
+        enemy.StartCoroutine("FreezeTimeFor", freezeTimeDuration);
     }
 
     private void SetUpTargetsForBounce(Collider2D collision)
